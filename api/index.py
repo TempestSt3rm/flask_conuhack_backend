@@ -51,9 +51,14 @@ def get_user():
     else:
         return jsonify({'error': 'User not found'}), 404
 
-# Vercel requires this
+from werkzeug.middleware.proxy_fix import ProxyFix
+app.wsgi_app = ProxyFix(app.wsgi_app)  
+
 def handler(event, context):
-    return app(event, context)
+    return app  
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
