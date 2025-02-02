@@ -55,8 +55,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 app.wsgi_app = ProxyFix(app.wsgi_app)  
 
 def handler(event, context):
-    from werkzeug.serving import run_simple
-    return run_simple('0.0.0.0', 8080, app)
+    return app
 
 if __name__ == '__main__':
     app.run(debug=True)
