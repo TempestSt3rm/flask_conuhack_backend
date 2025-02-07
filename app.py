@@ -13,11 +13,8 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 def home():
     return jsonify({"message": "Hello from Flask on Railway!"})
 
-<<<<<<< HEAD
-#This is the test change 
-=======
 #this is the main branch
->>>>>>> main
+#This is the test change 
 
 if __name__ == '__main__':
     app.run(debug=True)
